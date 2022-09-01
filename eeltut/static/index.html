@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geolocation API</title>
+</head>
+
+<body>
+    <h1>Find your Current location</h1>
+    <button onclick="getlocation()">Click me</button>
+    <div id="location"></div>
+    <script>
+        var x = document.getElementById("location");
+        function getlocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition)
+            }
+            else {
+                alert("Sorry! your browser is not supporting")
+            }
+        }
+
+        function showPosition(position) {
+            window.xc = position.coords.latitude;
+            window.xv = position.coords.longitude;
+            var x = "Your current location is (" + "Latitude: " + window.xc + ", " + "Longitude: " + window.xv + ")";
+            document.getElementById("location").innerHTML = x;
+            eel.chkcoord(window.xc, window.xv);
+        }
+
+    </script>
+    <script src='/eel.js'> </script>
+</body>
+
+</html>
